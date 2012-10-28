@@ -1,0 +1,11 @@
+<PISI>
+  <Name>onur.playground</Name>
+  <LocalName xml:lang="en">Onur's tiggy wiggy</LocalName>
+  <Summary xml:lang="en">Untested packages for Onur's personal use. Use at your own risk.</Summary>
+  <Description xml:lang="en">Untested, buggy, "works for me" packages rest in peace here, until they will be summoned. This is where most of the coffee goes to. Use at your own risk.</Description>
+  <Icon>kaffeine</Icon>
+  <Packager>
+      <Name>Onur Küçük</Name>
+      <Email>onur@delipenguen.net</Email>
+  </Packager>
+</PISI>
