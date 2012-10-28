@@ -94,7 +94,7 @@
             <Version>1.0.25_20120630</Version>
             <Comment>Version bump</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="74">
             <Date>2011-03-29</Date>
@@ -450,7 +450,7 @@
             <Version>1.0.15</Version>
             <Comment>Backport sigmatel patches, fixes for many new Dell laptops</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="28">
             <Date>2007-10-31</Date>
@@ -541,7 +541,7 @@
             <Version>1.0.13</Version>
             <Comment>Add docs</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="15">
             <Date>2006-11-03</Date>

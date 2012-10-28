@@ -5,7 +5,7 @@ diff -Nur nmap-5.30BETA1-old/zenmap/install_scripts/unix/su-to-zenmap.sh nmap-5.
  #Joost Witteveen <joostje@debian.org>
  #Morten Brix Pedersen
  #Bill Allombert <ballombe@debian.org>
-+# force usage of xdg-su, it is safer to leave assumption to xdg, Onur Küçük <onur@pardus.org.tr>
++# force usage of xdg-su, it is safer to leave assumption to xdg, Onur Küçük <onur@delipenguen.net>
  
  PRIV=root
  COMMAND="zenmap $@"

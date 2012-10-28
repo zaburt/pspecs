@@ -90,7 +90,7 @@
             <Version>1.6.5</Version>
             <Comment>Version bump</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="49" type="security">
             <Date>2011-09-09</Date>
@@ -347,7 +347,7 @@
             <Version>1.0.0</Version>
             <Comment>Enable more plugins, fix gui help</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="18" type="security">
             <Date>2008-03-31</Date>

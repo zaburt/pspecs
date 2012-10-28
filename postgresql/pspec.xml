@@ -100,21 +100,21 @@
             <Version>9.1.6</Version>
             <Comment>Minor version bump to bugfix release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="31">
             <Date>2012-03-04</Date>
             <Version>9.1.3</Version>
             <Comment>Minor version bump to bugfix release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="30">
             <Date>2011-12-11</Date>
             <Version>9.1.2</Version>
             <Comment>Major version bump to 9.x series, this version has serious speed improvements</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="29" type="security">
             <Date>2011-02-04</Date>

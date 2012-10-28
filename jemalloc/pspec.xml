@@ -6,7 +6,7 @@
         <Homepage>http://www.canonware.com/jemalloc/</Homepage>
         <Packager>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Packager>
         <License>BSD</License>
         <IsA>library</IsA>
@@ -47,7 +47,7 @@
             <Version>2.2.5</Version>
             <Comment>First release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
     </History>
 </PISI>

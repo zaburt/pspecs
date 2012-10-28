@@ -6,7 +6,7 @@
         <Homepage>http://pogostick.net/~pnh/ntpasswd/</Homepage>
         <Packager>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Packager>
         <License>GPLv2</License>
         <License>LGPLv2.1</License>
@@ -36,7 +36,7 @@
             <Version>0.0_110511</Version>
             <Comment>First release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
     </History>
 </PISI>

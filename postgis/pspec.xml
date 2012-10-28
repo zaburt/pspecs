@@ -6,7 +6,7 @@
         <Homepage>http://postgis.refractions.net/</Homepage>
         <Packager>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>app:console</IsA>
@@ -44,14 +44,14 @@
             <Version>1.5.5</Version>
             <Comment>Minor version bump for bugfix</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="1">
             <Date>2012-03-01</Date>
             <Version>1.5.3</Version>
             <Comment>First release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
     </History>
 </PISI>

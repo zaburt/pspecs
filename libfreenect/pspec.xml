@@ -6,7 +6,7 @@
         <Homepage>http://openkinect.org/</Homepage>
         <Packager>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
@@ -66,7 +66,7 @@
             <Version>0.0_20101210</Version>
             <Comment>First release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
     </History>
 </PISI>

@@ -75,35 +75,35 @@
             <Version>6.01</Version>
             <Comment>Version bump for bugfixes</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="34">
             <Date>2012-05-21</Date>
             <Version>6.00</Version>
             <Comment>Version bump for many new NSE scripts and libraries</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="33">
             <Date>2012-03-11</Date>
             <Version>5.61</Version>
             <Comment>Version bump for many new NSE scripts and libraries</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="32">
             <Date>2011-07-02</Date>
             <Version>5.59</Version>
             <Comment>Version bump for many new NSE scripts and libraries</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="31">
             <Date>2011-02-12</Date>
             <Version>5.51</Version>
             <Comment>Version bump for many new NSE scripts and libraries</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="30">
             <Date>2011-01-27</Date>
@@ -124,7 +124,7 @@
             <Version>5.35</Version>
             <Comment>Version bump to Defcon release</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="27">
             <Date>2010-07-07</Date>
@@ -136,7 +136,7 @@
                 Add some small fixes
             </Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="26">
             <Date>2010-04-06</Date>
@@ -149,7 +149,7 @@
                 A few segfault fixes
             </Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="25">
             <Date>2010-01-28</Date>
@@ -165,7 +165,7 @@
                 Fixed a bug with the decoding of NMAP OID component values greater than 127
             </Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="24">
             <Date>2010-01-20</Date>
@@ -179,91 +179,91 @@
                 Massive OS and version detection DB updates (10,000+ signatures)
             </Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="23">
             <Date>2009-07-17</Date>
             <Version>5.00</Version>
             <Comment>Bump to stable version</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="22">
             <Date>2009-06-28</Date>
             <Version>4.90_rc1</Version>
             <Comment>Bump to release candidate for many GSOC improvements</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="21">
             <Date>2009-06-13</Date>
             <Version>4.85_beta10</Version>
             <Comment>Bump to latest beta for more than 50 significant bug fixes, new features, performance improvements</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="20">
             <Date>2009-05-19</Date>
             <Version>4.85_beta9</Version>
             <Comment>Bump to latest beta</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="19">
             <Date>2009-05-05</Date>
             <Version>4.85_beta8</Version>
             <Comment>Bump to latest beta</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="18">
             <Date>2009-04-05</Date>
             <Version>4.85_beta7</Version>
             <Comment>Update to latest beta for many conficker enhancements</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="17">
             <Date>2009-02-09</Date>
             <Version>4.85_beta3</Version>
             <Comment>Update to latest tarball, beta3 seems stable enough for testing</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="16">
             <Date>2008-09-13</Date>
             <Version>4.76</Version>
             <Comment>Stable update, fixed an assertion failure where raw TCP timing ping probes were wrongly used during a TCP connect scan, update NSE bit library for better Lua compatibility</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="15">
             <Date>2008-09-09</Date>
             <Version>4.75</Version>
             <Comment>Stable update</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="14">
             <Date>2008-06-30</Date>
             <Version>4.68</Version>
             <Comment>Stable update</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="13">
             <Date>2008-05-04</Date>
             <Version>4.62</Version>
             <Comment>Stable update</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="12">
             <Date>2008-04-25</Date>
             <Version>4.60</Version>
             <Comment>Stable update</Comment>
             <Name>Onur Küçük</Name>
-            <Email>onur@pardus.org.tr</Email>
+            <Email>onur@delipenguen.net</Email>
         </Update>
         <Update release="11">
             <Date>2008-02-04</Date>
