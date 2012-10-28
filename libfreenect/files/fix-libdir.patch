@@ -1,0 +1,39 @@
+Index: libfreenect-0.1.1_20111123/cmake_modules/FindOS.cmake
+===================================================================
+--- libfreenect-0.1.1_20111123.orig/cmake_modules/FindOS.cmake
++++ libfreenect-0.1.1_20111123/cmake_modules/FindOS.cmake
+@@ -45,15 +45,3 @@ ELSE (PROJECT_OS_LINUX)
+ ENDIF (PROJECT_OS_LINUX)
+ 
+ MESSAGE (STATUS "Got System Processor ${CMAKE_SYSTEM_PROCESSOR}")
+-
+-# 32 or 64 bit Linux
+-IF (PROJECT_OS_LINUX)
+-    # Set the library directory suffix accordingly
+-    IF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+-        SET (PROJECT_PROC_64BIT TRUE BOOL INTERNAL)
+-        MESSAGE (STATUS "Linux x86_64 Detected")
+-    ELSEIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "ppc64")
+-        MESSAGE (STATUS "Linux ppc64 Detected")
+-        SET (PROJECT_PROC_64BIT TRUE BOOL INTERNAL)
+-    ENDIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+-ENDIF (PROJECT_OS_LINUX)
+Index: libfreenect-0.1.1_20111123/CMakeLists.txt
+===================================================================
+--- libfreenect-0.1.1_20111123.orig/CMakeLists.txt
++++ libfreenect-0.1.1_20111123/CMakeLists.txt
+@@ -94,14 +94,6 @@ SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINAR
+ SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+ SET(DOC_OUTPUT_PATH ${CMAKE_BINARY_DIR}/doc)
+ 
+-# let CFLAGS env override this
+-if(CMAKE_C_FLAGS STREQUAL "")
+-  set(CMAKE_C_FLAGS "-O2")
+-endif()
+-SET(CMAKE_C_FLAGS_DEBUG "-g -DDEBUG=1")
+-SET(CMAKE_C_FLAGS_RELEASE "-O2")
+-SET(CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+-
+ add_definitions(-Wall)
+ 
+ # Pretty much everyone is going to need the main includes

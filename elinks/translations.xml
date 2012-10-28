@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>elinks</Name>
+        <Summary xml:lang="tr">Metin sistemi Internet tarayıcı</Summary>
+        <Description xml:lang="tr">Elinks HTTP Yetkilendirme, Javascript, FTP, Mime tipleri vb. özellikleri olan metin ortamı Internet tarayıcısıdır.</Description>
+    </Source>
+</PISI>

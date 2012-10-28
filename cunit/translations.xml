@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>cunit</Name>
+        <Summary xml:lang="tr">C için birim test altyapısı</Summary>
+        <Description xml:lang="tr">CUnit C programlama dili için birim test yazma, yönetme ve çalıştırma altyapısıdır. C programcıları için esnek arabirim seçenekleriyle temel test yetenekleri sunar.</Description>
+    </Source>
+
+    <Package>
+        <Name>cunit-devel</Name>
+        <Summary xml:lang="tr">cunit için geliştirme dosyaları</Summary>
+    </Package>
+</PISI>

@@ -1,0 +1,18 @@
+diff -Nur wireshark-1.6.5-old//wireshark.desktop wireshark-1.6.5/wireshark.desktop
+--- wireshark-1.6.5-old//wireshark.desktop	2012-03-15 22:17:13.847000057 +0200
++++ wireshark-1.6.5/wireshark.desktop	2012-03-15 22:18:45.731000082 +0200
+@@ -68,11 +68,12 @@
+ Comment[fi]=Verkkoliikenne analysaattori
+ Comment[fr]=Analyseur de trafic réseau
+ Comment[sv]=Nätverkstrafikanalysator
+-Icon=wireshark.png
++Comment[tr]=Ağ trafiği analiz aracı
++Icon=wireshark
+ TryExec=wireshark
+ Exec=wireshark %f
+ Terminal=false
+-MimeType=application/vnd.tcpdump.pcap;
++MimeType=application/vnd.tcpdump.pcap;application/x-pcap;
+ # Categorie entry according to version 1.0 of
+ # http://www.freedesktop.org/wiki/Specifications/menu-spec
+ Categories=System;Monitor;GTK;

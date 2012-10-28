@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>jemalloc</Name>
+        <Summary xml:lang="tr">Malloc sistemi</Summary>
+        <Description xml:lang="tr">Jemalloc genel amaçlı, ölçeklenebilir, eşzamanlı malloc gerçeklemesidir.</Description>
+    </Source>
+
+    <Package>
+        <Name>jemalloc-devel</Name>
+        <Summary xml:lang="tr">jemalloc için geliştirme dosyaları</Summary>
+    </Package>
+</PISI>

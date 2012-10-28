@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libfreenect</Name>
+        <Homepage>http://openkinect.org/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>Open Kinect library and examples</Summary>
+        <Description>libfreenect is an open-source library and a set of examples for the Kinect sensor kit.</Description>
+        <!-- created from https://github.com/OpenKinect/libfreenect -->
+        <Archive sha1sum="92f93814775037b977ee2d0090e0c5cd60905ddd" type="tarbz2">http://cekirdek.pardus.org.tr/~ozan/dist/sources/libfreenect-0.1.1_20111123.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>mesa-devel</Dependency>
+            <Dependency>libusb1-devel</Dependency>
+            <Dependency>freeglut-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">fix-libdir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libfreenect</Name>
+        <RuntimeDependencies>
+            <Dependency>mesa</Dependency>
+            <Dependency>libusb1</Dependency>
+            <Dependency>freeglut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/lib/udev/rules.d</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc/libfreenect</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libfreenect-devel</Name>
+        <Summary>Development files for libfreenect</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">libfreenect</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2012-01-05</Date>
+            <Version>0.1.1_20111123</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2010-12-10</Date>
+            <Version>0.0_20101210</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

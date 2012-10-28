@@ -1,0 +1,343 @@
+From f8a73b2399c5266edc8487eac90755da6396e081 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 11:17:22 +0200
+Subject: [PATCH 1/6] Support mapping button controls
+
+---
+ libwebcam/dynctrl.c |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/libwebcam/dynctrl.c b/libwebcam/dynctrl.c
+index 8c90c87..20a4894 100644
+--- a/libwebcam/dynctrl.c
++++ b/libwebcam/dynctrl.c
+@@ -423,6 +423,9 @@ static enum v4l2_ctrl_type get_v4l2_ctrl_type_by_name (const xmlChar *name)
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_BOOLEAN"))) {
+ 		type = V4L2_CTRL_TYPE_BOOLEAN;
+ 	}
++	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_BUTTON"))) {
++		type = V4L2_CTRL_TYPE_BUTTON;
++	}
+ #ifdef ENABLE_RAW_CONTROLS
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_STRING"))) {
+ 		type = V4L2_CTRL_TYPE_STRING;
+@@ -432,9 +435,6 @@ static enum v4l2_ctrl_type get_v4l2_ctrl_type_by_name (const xmlChar *name)
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_MENU"))) {
+ 		type = V4L2_CTRL_TYPE_MENU;
+ 	}
+-	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_BUTTON"))) {
+-		type = V4L2_CTRL_TYPE_BUTTON;
+-	}
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_INTEGER64"))) {
+ 		type = V4L2_CTRL_TYPE_INTEGER64;
+ 	}
+-- 
+1.7.0.1
+
+From 96940902cfc0d71909df83a9e6e85eea008e704b Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 11:18:48 +0200
+Subject: [PATCH 2/6] Change Pan / Tilt reset mappings to be of the button type
+
+Note for this to work properly applications should specify a value
+of 1 (3 for V4L2_CID_PANTILT_RESET, but see the next patch). I've a
+kernel (uvcvideo) patch removing the need for this as this is not
+in accordance with the v4l2 spec.
+---
+ uvcdynctrl/data/046d/logitech.xml |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/uvcdynctrl/data/046d/logitech.xml b/uvcdynctrl/data/046d/logitech.xml
+index 590a223..2de441e 100644
+--- a/uvcdynctrl/data/046d/logitech.xml
++++ b/uvcdynctrl/data/046d/logitech.xml
+@@ -357,7 +357,7 @@
+ 			</uvc>
+ 			<v4l2>
+ 				<id>V4L2_CID_PAN_RESET</id>
+-				<v4l2_type>V4L2_CTRL_TYPE_INTEGER</v4l2_type>
++				<v4l2_type>V4L2_CTRL_TYPE_BUTTON</v4l2_type>
+ 			</v4l2>
+ 		</mapping>
+ 		
+@@ -371,7 +371,7 @@
+ 			</uvc>
+ 			<v4l2>
+ 				<id>V4L2_CID_TILT_RESET</id>
+-				<v4l2_type>V4L2_CTRL_TYPE_INTEGER</v4l2_type>
++				<v4l2_type>V4L2_CTRL_TYPE_BUTTON</v4l2_type>
+ 			</v4l2>
+ 		</mapping>
+ 		
+@@ -385,7 +385,7 @@
+ 			</uvc>
+ 			<v4l2>
+ 				<id>V4L2_CID_PANTILT_RESET</id>
+-				<v4l2_type>V4L2_CTRL_TYPE_INTEGER</v4l2_type>
++				<v4l2_type>V4L2_CTRL_TYPE_BUTTON</v4l2_type>
+ 			</v4l2>
+ 		</mapping>
+ 		
+-- 
+1.7.0.1
+
+From d802ac143d53fb791e86246b85b8a2ced66cd277 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 12:19:14 +0200
+Subject: [PATCH 3/6] Remove V4L2_CID_PANTILT_RESET mapping
+
+There is no V4L2_CID_PANTILT_RESET in the official videodev2.h, if
+an application wants to change 2 controls at the same time (trigger
+2 button actions at the same time in this case) it should use the
+extended controls API.
+---
+ common/include/dynctrl-logitech.h |    4 ----
+ uvcdynctrl/data/046d/logitech.xml |   20 +-------------------
+ 2 files changed, 1 insertions(+), 23 deletions(-)
+
+diff --git a/common/include/dynctrl-logitech.h b/common/include/dynctrl-logitech.h
+index 6cf68a7..944e6f3 100644
+--- a/common/include/dynctrl-logitech.h
++++ b/common/include/dynctrl-logitech.h
+@@ -72,10 +72,6 @@
+ #define V4L2_CID_TILT_RELATIVE 0x009A0905
+ #endif
+ 
+-#ifndef V4L2_CID_PANTILT_RESET
+-#define V4L2_CID_PANTILT_RESET 0x0A046D03
+-#endif
+-
+ #ifndef V4L2_CID_PAN_RESET
+ #define V4L2_CID_PAN_RESET 0x009A0906
+ #endif
+diff --git a/uvcdynctrl/data/046d/logitech.xml b/uvcdynctrl/data/046d/logitech.xml
+index 2de441e..9657b16 100644
+--- a/uvcdynctrl/data/046d/logitech.xml
++++ b/uvcdynctrl/data/046d/logitech.xml
+@@ -93,10 +93,6 @@
+ 			<value>0x009A0905</value><!-- V4L2_CID_CAMERA_CLASS_BASE + 5 -->
+ 		</constant>
+ 		<constant type="integer">
+-			<id>V4L2_CID_PANTILT_RESET</id>
+-			<value>0x0A046D03</value>
+-		</constant>
+-		<constant type="integer">
+ 			<id>V4L2_CID_PAN_RESET</id>
+ 			<value>0x009A0906</value><!-- V4L2_CID_CAMERA_CLASS_BASE + 6 -->
+ 		</constant>
+@@ -374,21 +370,7 @@
+ 				<v4l2_type>V4L2_CTRL_TYPE_BUTTON</v4l2_type>
+ 			</v4l2>
+ 		</mapping>
+-		
+-		<mapping>
+-			<name>Pan/tilt Reset</name>
+-			<uvc>
+-				<control_ref idref="logitech_motor_pantilt_reset"/>
+-				<size>8</size>
+-				<offset>0</offset>
+-				<uvc_type>UVC_CTRL_DATA_TYPE_UNSIGNED</uvc_type>
+-			</uvc>
+-			<v4l2>
+-				<id>V4L2_CID_PANTILT_RESET</id>
+-				<v4l2_type>V4L2_CTRL_TYPE_BUTTON</v4l2_type>
+-			</v4l2>
+-		</mapping>
+-		
++
+ 		<mapping>
+ 			<name>Focus</name>
+ 			<uvc>
+-- 
+1.7.0.1
+
+From 1cfec4c49503da8bb8d7e4715e9d764fab610d3f Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 14:03:42 +0200
+Subject: [PATCH 4/6] Add support for menu controls
+
+This requires the latest uvcvideo.h with the menu support patch
+applied.
+---
+ libwebcam/dynctrl.c |   67 ++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 files changed, 64 insertions(+), 3 deletions(-)
+
+diff --git a/libwebcam/dynctrl.c b/libwebcam/dynctrl.c
+index 20a4894..52d91ab 100644
+--- a/libwebcam/dynctrl.c
++++ b/libwebcam/dynctrl.c
+@@ -426,15 +426,15 @@ static enum v4l2_ctrl_type get_v4l2_ctrl_type_by_name (const xmlChar *name)
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_BUTTON"))) {
+ 		type = V4L2_CTRL_TYPE_BUTTON;
+ 	}
++	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_MENU"))) {
++		type = V4L2_CTRL_TYPE_MENU;
++	}
+ #ifdef ENABLE_RAW_CONTROLS
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_STRING"))) {
+ 		type = V4L2_CTRL_TYPE_STRING;
+ 	}
+ #endif
+ 	/*
+-	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_MENU"))) {
+-		type = V4L2_CTRL_TYPE_MENU;
+-	}
+ 	else if(xmlStrEqual(name, BAD_CAST("V4L2_CTRL_TYPE_INTEGER64"))) {
+ 		type = V4L2_CTRL_TYPE_INTEGER64;
+ 	}
+@@ -1090,6 +1090,66 @@ static CResult process_mapping (const xmlNode *node_mapping, ParseContext *ctx)
+ 	}
+ 	mapping_info.data_type = uvc_type;
+ 
++	if(v4l2_type == V4L2_CTRL_TYPE_MENU) {
++		xmlNode *node_menu = xml_get_first_child_by_name(node_v4l2, "menu_entry");
++		if(!node_menu) {
++			add_error_at_node(ctx, node_v4l2,
++				"<menu_entry> is mandatory for mappings with a v4l2_type of V4L2_CTRL_TYPE_MENU");
++			return C_PARSE_ERROR;
++		}
++
++		mapping_info.menu_count = 1;
++		while ((node_menu = xml_get_next_sibling_by_name(node_menu, "menu_entry")))
++			mapping_info.menu_count++;
++
++		mapping_info.menu_info =
++			malloc(mapping_info.menu_count * sizeof(struct uvc_menu_info));
++		if(!mapping_info.menu_info)
++			return C_NO_MEMORY;
++
++		int i;
++		node_menu = xml_get_first_child_by_name(node_v4l2, "menu_entry");
++		for (i = 0; i < mapping_info.menu_count; i++) {
++			xmlChar *menu_name_uni = xmlGetProp(node_menu, BAD_CAST("name"));
++			char *menu_name_asc = UNICODE_TO_NORM_ASCII(menu_name_uni);
++			if(!menu_name_asc) {
++				add_error_at_node(ctx, node_menu,
++					"Invalid menu_entry. 'name' attribute is mandatory.");
++				free(mapping_info.menu_info);
++				return C_PARSE_ERROR;
++			}
++
++			xmlChar *menu_value = xmlGetProp(node_menu, BAD_CAST("value"));
++			if(!menu_value) {
++				add_error_at_node(ctx, node_menu,
++					"Invalid menu_entry. 'value' attribute is mandatory.");
++				xmlFree(menu_name_uni);
++				free(menu_name_asc);
++				free(mapping_info.menu_info);
++				return C_PARSE_ERROR;
++			}
++
++			snprintf((char *)mapping_info.menu_info[i].name,
++				 sizeof(mapping_info.menu_info[i].name),
++				 "%s", menu_name_asc);
++			ret = lookup_or_convert_to_integer(menu_value,
++				(int *)&mapping_info.menu_info[i].value,
++				ctx);
++			if(ret)
++				add_error_at_node(ctx, node_menu,
++					"<menu_entry> value contains invalid number or references unknown constant: '%s'",
++					menu_value);
++			xmlFree(menu_value);
++			xmlFree(menu_name_uni);
++			free(menu_name_asc);
++			if(ret) {
++				free(mapping_info.menu_info);
++				return C_PARSE_ERROR;
++			}
++			node_menu = xml_get_next_sibling_by_name(node_menu, "menu_entry");
++		}
++	}
++
+ 	// Add the control to the UVC driver's control list
+ 	/*
+ 	printf(
+@@ -1114,6 +1174,7 @@ static CResult process_mapping (const xmlNode *node_mapping, ParseContext *ctx)
+ 	);
+ 	*/
+ 	int v4l2_ret = ioctl(ctx->v4l2_handle, UVCIOC_CTRL_MAP, &mapping_info);
++	free(mapping_info.menu_info);
+ 	if(v4l2_ret != 0
+ #ifdef DYNCTRL_IGNORE_EEXIST_AFTER_PASS1
+ 			&& (ctx->pass == 1 || errno != EEXIST)
+-- 
+1.7.0.1
+
+From 9a43ebe963341103482b34aedb66200e247922e5 Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 14:15:52 +0200
+Subject: [PATCH 5/6] Change LED mode control to a menu
+
+---
+ uvcdynctrl/data/046d/logitech.xml |    6 +++++-
+ 1 files changed, 5 insertions(+), 1 deletions(-)
+
+diff --git a/uvcdynctrl/data/046d/logitech.xml b/uvcdynctrl/data/046d/logitech.xml
+index 9657b16..3cd6767 100644
+--- a/uvcdynctrl/data/046d/logitech.xml
++++ b/uvcdynctrl/data/046d/logitech.xml
+@@ -395,7 +395,11 @@
+ 			</uvc>
+ 			<v4l2>
+ 				<id>V4L2_CID_LED1_MODE</id>
+-				<v4l2_type>V4L2_CTRL_TYPE_INTEGER</v4l2_type>
++				<v4l2_type>V4L2_CTRL_TYPE_MENU</v4l2_type>
++				<menu_entry name="Off" value="0"/>
++				<menu_entry name="On" value="1"/>
++				<menu_entry name="Blinking" value="2"/>
++				<menu_entry name="Auto" value="3"/>
+ 			</v4l2>
+ 		</mapping>
+ 		
+-- 
+1.7.0.1
+
+From 9f1f9521b8dbbb9d33f5723bf91c5d006a394eba Mon Sep 17 00:00:00 2001
+From: Hans de Goede <hdegoede@redhat.com>
+Date: Sun, 16 May 2010 14:50:51 +0200
+Subject: [PATCH 6/6] Make control mapping work with older kernels
+
+With the addition of the capability of adding menu control mappings
+the id of the UVCIOC_CTRL_MAP ioctl changed as the size of the
+uvc_xu_control_mapping struct changed. The old ioctl id is still available
+as UVCIOC_CTRL_MAP_OLD. The main reason for the availability of the old
+ioctl id is for use by the driver, so that newer kernels will stay
+working with older versions of uvcdynctrl. But we can use it the otherway
+around too, to make uvcdynctrl compiled with the new uvcvideo.h also
+work with older kernels.
+---
+ libwebcam/dynctrl.c |   18 ++++++++++++++++++
+ 1 files changed, 18 insertions(+), 0 deletions(-)
+
+diff --git a/libwebcam/dynctrl.c b/libwebcam/dynctrl.c
+index 52d91ab..d3ad3e4 100644
+--- a/libwebcam/dynctrl.c
++++ b/libwebcam/dynctrl.c
+@@ -1174,6 +1174,24 @@ static CResult process_mapping (const xmlNode *node_mapping, ParseContext *ctx)
+ 	);
+ 	*/
+ 	int v4l2_ret = ioctl(ctx->v4l2_handle, UVCIOC_CTRL_MAP, &mapping_info);
++	if(v4l2_ret != 0 && errno == EINVAL) {
++		/* EINVAL can indicate:
++		   1) wrong v4l2_type, we never cause this
++		   2) wrong id, a wrong entry in the xml file could cause this
++		   3) an older kernel which needs UVCIOC_CTRL_MAP_OLD
++		   We assume 3 is the cause, if 2 is the cause we will get
++		   the same error with UVCIOC_CTRL_MAP_OLD/ */
++
++		/* If this is a menu type control change it to an integer
++		   control, menu controls are not supported with older
++		   kernels, and worse they make the driver oops (NULL ptr
++		   deref). */
++		if (mapping_info.v4l2_type == V4L2_CTRL_TYPE_MENU)
++			mapping_info.v4l2_type = V4L2_CTRL_TYPE_INTEGER;
++
++		v4l2_ret = ioctl(ctx->v4l2_handle, UVCIOC_CTRL_MAP_OLD,
++				 &mapping_info);
++	}
+ 	free(mapping_info.menu_info);
+ 	if(v4l2_ret != 0
+ #ifdef DYNCTRL_IGNORE_EEXIST_AFTER_PASS1
+-- 
+1.7.0.1
+

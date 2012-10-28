@@ -1,0 +1,12 @@
+diff -Nur alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//i2c/other/tea575x-tuner-3.3.c alsa-driver-1.0.25.34.ge76f3.967.g8db4f/i2c/other/tea575x-tuner-3.3.c
+--- alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//i2c/other/tea575x-tuner-3.3.c	2012-06-30 21:44:03.736000092 +0300
++++ alsa-driver-1.0.25.34.ge76f3.967.g8db4f/i2c/other/tea575x-tuner-3.3.c	2012-06-30 21:44:29.254000091 +0300
+@@ -428,7 +428,7 @@
+ /*
+  * initialize all the tea575x chips
+  */
+-int snd_tea575x_init(struct snd_tea575x *tea)
++int snd_tea575x_init(struct snd_tea575x *tea, struct module *owner)
+ {
+ 	int retval;
+ 

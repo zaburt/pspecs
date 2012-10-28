@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cunit</Name>
+        <Homepage>http://cunit.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>app:console</IsA>
+        <Summary>Unit Testing Framework for C</Summary>
+        <Description>CUnit is a lightweight system for writing, administering, and running unit tests in C. It provides C programmers a basic testing functionality with a flexible variety of user interfaces.</Description>
+        <Archive sha1sum="6c2d0627eb64c09c7140726d6bf814cf531a3ce0" type="tarbz2">mirrors://sourceforge/cunit/CUnit-2.1-2-src.tar.bz2</Archive>
+        <Patches>
+            <Patch>link_ncurses.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cunit</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/CUnit</Path>
+            <Path fileType="doc">/usr/share/doc/cunit</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>cunit-devel</Name>
+        <Summary>Development files for cunit</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">cunit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc/cunit/html</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-03-01</Date>
+            <Version>2.1.2</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

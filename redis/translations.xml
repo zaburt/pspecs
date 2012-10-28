@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>redis</Name>
+        <Summary xml:lang="tr">Anahtar-değer depolama sistemi</Summary>
+        <Description xml:lang="tr">Redis sürekli bellekleme yapabilen, anahtar-değer tabanlı veri yapısı veritabanı sistemidir.</Description>
+    </Source>
+</PISI>

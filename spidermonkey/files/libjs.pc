@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: libjs
+Description: JS library
+Requires: nspr >= 4.7
+Version: 1.8.5
+Libs: -L${libdir} -ljs
+Cflags: -DXP_UNIX=1 -DJS_THREADSAFE=1 -I${includedir}/js
+

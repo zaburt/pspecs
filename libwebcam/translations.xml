@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>libwebcam</Name>
+        <Summary xml:lang="tr">UVC sürücüsü araçları</Summary>
+        <Description xml:lang="tr">libwebcam uvcvideo çekirdek sürücüsünü kullanıcı-uzayından yönetmek için gerekli kitaplık ve araçları sağlar.</Description>
+    </Source>
+</PISI>

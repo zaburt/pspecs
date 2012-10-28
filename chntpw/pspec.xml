@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>chntpw</Name>
+        <Homepage>http://pogostick.net/~pnh/ntpasswd/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>LGPLv2.1</License>
+        <IsA>app:console</IsA>
+        <Summary>Offline NT registry editor</Summary>
+        <Description>chntpw is an offline NT password changer and registry editor.</Description>
+        <Archive sha1sum="c9f480a3f4b4447dff1431ed323d0359efbf19e1" type="zip">http://pogostick.net/~pnh/ntpasswd/chntpw-source-110511.zip</Archive>
+        <Patches>
+            <!-- sed -i -e '/-o/s:$(CC):$(CC) $(LDFLAGS):' Makefile -->
+            <Patch level="1">ldflags.patch</Patch>
+            <!-- sed -i -e "/^all:/s/ \(chntpw\|reged\).static//g" Makefile -->
+            <Patch level="1">shared_libs.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>chntpw</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/chntpw</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-06-11</Date>
+            <Version>0.0_110511</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

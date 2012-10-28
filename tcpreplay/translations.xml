@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>tcpreplay</Name>
+        <Summary xml:lang="tr">Yakalanmış ağ trafiği tekrarlayıcı</Summary>
+        <Description xml:lang="tr">Tcpreplay, pcap (tcpdump) ve snoop sistemleri ile yakalanmış ağ trafiğini tekrarlama aracıdır. Performans arttırmak için tcpprep, temel bilgi vermek için capinfo gibi araçlar da içerir.</Description>
+    </Source>
+</PISI>

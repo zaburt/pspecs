@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>libfreenect</Name>
+        <Summary xml:lang="tr">Açık kaynaklı Kinect kitaplığı ve örnekleri</Summary>
+        <Description xml:lang="tr">libfreenect, Kinect izleme araç seti için açık kaynaklı kitaplıklar ve araçlar içerir.</Description>
+    </Source>
+
+    <Package>
+        <Name>libfreenect-devel</Name>
+        <Summary xml:lang="tr">libfreenect için geliştirme dosyaları</Summary>
+    </Package>
+</PISI>

@@ -1,0 +1,36 @@
+diff -Nur alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//alsa-kernel/pci/hda/hda_intel.c alsa-driver-1.0.25.34.ge76f3.967.g8db4f/alsa-kernel/pci/hda/hda_intel.c
+--- alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//alsa-kernel/pci/hda/hda_intel.c	2012-06-30 21:14:54.465000091 +0300
++++ alsa-driver-1.0.25.34.ge76f3.967.g8db4f/alsa-kernel/pci/hda/hda_intel.c	2012-06-30 21:15:04.792000092 +0300
+@@ -105,7 +105,7 @@
+ #ifdef CONFIG_SND_HDA_INPUT_BEEP
+ module_param_array(beep_mode, int, NULL, 0444);
+ MODULE_PARM_DESC(beep_mode, "Select HDA Beep registration mode "
+-			    "(0=off, 1=on, 2=mute switch on/off) (default=1).");
++			    "(0=off, 1=on, 2=mute switch on/off) (default=0).");
+ #endif
+ 
+ #ifdef CONFIG_SND_HDA_POWER_SAVE
+diff -Nur alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//alsa-kernel/pci/hda/Kconfig alsa-driver-1.0.25.34.ge76f3.967.g8db4f/alsa-kernel/pci/hda/Kconfig
+--- alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//alsa-kernel/pci/hda/Kconfig	2012-06-30 21:14:54.464000091 +0300
++++ alsa-driver-1.0.25.34.ge76f3.967.g8db4f/alsa-kernel/pci/hda/Kconfig	2012-06-30 21:15:04.791000092 +0300
+@@ -55,7 +55,7 @@
+ config SND_HDA_INPUT_BEEP_MODE
+ 	int "Digital beep registration mode (0=off, 1=on, 2=mute sw on/off)"
+ 	depends on SND_HDA_INPUT_BEEP=y
+-	default "1"
++	default "0"
+ 	range 0 2
+ 	help
+ 	  Set 0 to disable the digital beep interface for HD-audio by default.
+diff -Nur alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//configure alsa-driver-1.0.25.34.ge76f3.967.g8db4f/configure
+--- alsa-driver-1.0.25.34.ge76f3.967.g8db4f-old//configure	2012-06-30 21:14:54.420000091 +0300
++++ alsa-driver-1.0.25.34.ge76f3.967.g8db4f/configure	2012-06-30 21:17:59.841000092 +0300
+@@ -15088,7 +15088,7 @@
+       ( test "$CONFIG_SND_PCI" = "y" -o "$CONFIG_SND_PCI" = "m" ) &&
+       ( test "$CONFIG_SND_HDA_INTEL" = "y" -o "$CONFIG_SND_HDA_INTEL" = "m" ) &&
+       ( test "$CONFIG_SND_HDA_INPUT_BEEP" = "y" -o "$CONFIG_SND_HDA_INPUT_BEEP" = "m" ); then
+-      CONFIG_SND_HDA_INPUT_BEEP_MODE=$int_val
++      CONFIG_SND_HDA_INPUT_BEEP_MODE=0
+     fi
+   fi
+   if alsa_check_kconfig_option "hda-input-jack"; then

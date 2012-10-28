@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libwebcam</Name>
+        <Homepage>http://www.quickcamteam.net/software/libwebcam</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPLv3+</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>UVC driver tools</Summary>
+        <Description>libwebcam provides a user-space library for interaction with the uvcvideo kernel driver.</Description>
+        <!-- svn export -r 90 http://svn.quickcamteam.net/svn/qct/webcam-tools/branches/deb/ libwebcam-0.2.0  -->
+        <Archive sha1sum="c56bdfb18e8f9181aead086f1a1144babc679eca" type="targz">http://cekirdek.pardus.org.tr/~onur/distfiles/libwebcam-0.2.0_pre20100223.tar.gz</Archive>
+        <!-- wget http://linuxtv.org/hg/~pinchartl/uvcvideo/file/553dfd853cba/linux/drivers/media/video/uvc/uvcvideo.h
+             patch -p3 < libwebcam-uvcvideo-h.patch
+        -->
+        <AdditionalFiles>
+            <AdditionalFile target="common/include/uvcvideo.h">uvcvideo.h</AdditionalFile>
+        </AdditionalFiles>
+        <Patches>
+            <Patch level="1">libwebcam-uvc-make.patch</Patch>
+            <Patch level="1">libwebcam-0.2.0-button-menu.patch</Patch>
+            <Patch level="1">libwebcam-0.2.0-udev-log.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libwebcam</Name>
+        <Files>
+            <Path fileType="data">/lib/udev</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc/libwebcam</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/uvcdynctrl/data/046d</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2011-02-04</Date>
+            <Version>0.2.0_pre20100223</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tcpreplay</Name>
+        <Homepage>http://tcpreplay.synfin.net</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>Tool to replay captured traffic information</Summary>
+        <Description>Tcpreplay is a tool to replay captured network traffic. Currently, tcpreplay supports pcap (tcpdump) and snoop capture formats. Also included, is tcpprep a tool to pre-process capture files to allow increased performance under certain conditions as well as capinfo which provides basic information about capture files.</Description>
+        <Archive sha1sum="9e4cca81cfbfb919f8759e1a27ce1b3b963ff3b8" type="targz">http://prdownloads.sourceforge.net/tcpreplay/tcpreplay-3.4.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libdnet-devel</Dependency>
+            <Dependency>libpcap-devel</Dependency>
+            <Dependency>tcpdump</Dependency>
+            <Dependency>autogen-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">get_interface.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>tcpreplay</Name>
+        <RuntimeDependencies>
+            <Dependency>libdnet</Dependency>
+            <Dependency>libpcap</Dependency>
+            <Dependency>tcpdump</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/tcpreplay</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-03-15</Date>
+            <Version>3.4.4</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

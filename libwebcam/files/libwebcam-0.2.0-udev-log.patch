@@ -1,0 +1,11 @@
+--- a/uvcdynctrl/udev/scripts/uvcdynctrl	2010-07-12 19:14:53.000000000 -0500
++++ b/uvcdynctrl/udev/scripts/uvcdynctrl	2010-07-18 23:01:49.380086483 -0500
+@@ -12,7 +12,7 @@
+ # Constants
+ version=0.3
+ 
+-debug=1
++debug=0
+ uvcdynctrlpath=uvcdynctrl
+ 
+ # Determine log destination

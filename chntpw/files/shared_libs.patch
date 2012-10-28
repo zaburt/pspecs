@@ -1,0 +1,12 @@
+diff -Nur chntpw-110511-old//Makefile chntpw-110511/Makefile
+--- chntpw-110511-old//Makefile	2012-06-11 01:02:46.606000122 +0300
++++ chntpw-110511/Makefile	2012-06-11 01:02:49.063000122 +0300
+@@ -24,7 +24,7 @@
+ # This is to link with whatever we have, SSL crypto lib we put in static
+ LIBS=-L$(OSSLLIB) $(OSSLLIB)/libcrypto.a
+ 
+-all: chntpw chntpw.static cpnt reged reged.static
++all: chntpw cpnt reged
+ 
+ chntpw: chntpw.o ntreg.o edlib.o
+ 	$(CC) $(LDFLAGS) $(CFLAGS) -o chntpw chntpw.o ntreg.o edlib.o $(LIBS)

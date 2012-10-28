@@ -1,0 +1,33 @@
+diff -Nur chntpw-110511-old//Makefile chntpw-110511/Makefile
+--- chntpw-110511-old//Makefile	2012-06-11 01:00:25.530000123 +0300
++++ chntpw-110511/Makefile	2012-06-11 01:00:31.892000123 +0300
+@@ -27,23 +27,23 @@
+ all: chntpw chntpw.static cpnt reged reged.static
+ 
+ chntpw: chntpw.o ntreg.o edlib.o
+-	$(CC) $(CFLAGS) -o chntpw chntpw.o ntreg.o edlib.o $(LIBS)
++	$(CC) $(LDFLAGS) $(CFLAGS) -o chntpw chntpw.o ntreg.o edlib.o $(LIBS)
+ 
+ chntpw.static: chntpw.o ntreg.o edlib.o
+-	$(CC) -static $(CFLAGS) -o chntpw.static chntpw.o ntreg.o edlib.o $(LIBS)
++	$(CC) $(LDFLAGS) -static $(CFLAGS) -o chntpw.static chntpw.o ntreg.o edlib.o $(LIBS)
+ 
+ cpnt: cpnt.o
+-	$(CC) $(CFLAGS) -o cpnt cpnt.o $(LIBS)
++	$(CC) $(LDFLAGS) $(CFLAGS) -o cpnt cpnt.o $(LIBS)
+ 
+ reged: reged.o ntreg.o edlib.o
+-	$(CC) $(CFLAGS) -o reged reged.o ntreg.o edlib.o
++	$(CC) $(LDFLAGS) $(CFLAGS) -o reged reged.o ntreg.o edlib.o
+ 
+ reged.static: reged.o ntreg.o edlib.o
+-	$(CC) -static $(CFLAGS) -o reged.static reged.o ntreg.o edlib.o
++	$(CC) $(LDFLAGS) -static $(CFLAGS) -o reged.static reged.o ntreg.o edlib.o
+ 
+ 
+ #ts: ts.o ntreg.o
+-#	$(CC) $(CFLAGS) -nostdlib -o ts ts.o ntreg.o $(LIBS)
++#	$(CC) $(LDFLAGS) $(CFLAGS) -nostdlib -o ts ts.o ntreg.o $(LIBS)
+ 
+ # -Wl,-t
+ 

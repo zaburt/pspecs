@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>redis</Name>
+        <Homepage>http://redis.io</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>service</IsA>
+        <Summary>Key-value store system</Summary>
+        <Description>Redis is a persistent caching system, key-value and data structures database.</Description>
+        <Archive sha1sum="7c8e05a5957bd83fdb22e26edc58951422ecf013" type="targz">http://redis.googlecode.com/files/redis-2.4.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>google-perftools-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">config.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>redis</Name>
+        <RuntimeDependencies>
+            <Dependency>google-perftools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="doc">/usr/share/doc/redis</Path>
+            <Path fileType="data">/var/lib</Path>
+            <Path fileType="data">/var/log</Path>
+            <Path fileType="data">/var/run</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/logrotate.d/redis">redis.logrotate</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/conf.d/redis">redis.confd</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-03-19</Date>
+            <Version>2.4.9</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

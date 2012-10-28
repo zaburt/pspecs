@@ -1,0 +1,12 @@
+diff -Nur tcpreplay-3.4.4-old//src/common/interface.c tcpreplay-3.4.4/src/common/interface.c
+--- tcpreplay-3.4.4-old//src/common/interface.c	2012-03-15 22:35:29.161000058 +0200
++++ tcpreplay-3.4.4/src/common/interface.c	2012-03-15 22:36:32.844000049 +0200
+@@ -73,7 +73,7 @@
+         } while (ptr != NULL);
+     } else {
+         name = (char *)safe_malloc(strlen(alias) + 1);
+-        strlcpy(name, alias, sizeof(name));
++        strlcpy(name, alias, strlen(alias) + 1);
+         return(name);
+     }
+     

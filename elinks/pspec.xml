@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>elinks</Name>
+        <Homepage>http://elinks.or.cz/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Text mode Web browser</Summary>
+        <Description>Elinks is a text mode web browser with nice features like HTTP Authentication, Javascript, FTP, Mimetypes etc.</Description>
+        <Archive sha1sum="15fb38fa938a0eec9d5f22fdd538a6785e2854af" type="tarbz2">http://elinks.or.cz/download/elinks-0.12pre5.tar.bz2 </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.8.5">spidermonkey-devel</Dependency>
+            <Dependency>gpm</Dependency>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>nss-devel</Dependency>
+            <Dependency>samba-devel</Dependency>
+            <Dependency>ruby</Dependency>
+            <Dependency>tre-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">elinks-0.11.0-ssl-noegd.patch</Patch>
+            <Patch level="1">elinks-0.10.1-utf_8_io-default.patch</Patch>
+            <Patch level="1">elinks-0.11.0-getaddrinfo.patch</Patch>
+            <Patch level="1">elinks-0.11.0-sysname.patch</Patch>
+            <Patch level="1">elinks-0.10.1-xterm.patch</Patch>
+            <Patch level="1">elinks-0.11.0-union.patch</Patch>
+            <Patch level="1">elinks-0.11.3-macropen.patch</Patch>
+            <Patch level="1">elinks-scroll.patch</Patch>
+            <!-- nss compat ossl , we don't have it
+            <Patch level="1">elinks-nss.patch</Patch>
+            <Patch level="1">elinks-nss-inc.patch</Patch>
+            -->
+            <!-- for newer spidermonkey
+            -->
+            <Patch level="1">elinks-0.12pre5-js185.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>elinks</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.8.5">spidermonkey</Dependency>
+            <Dependency>gpm</Dependency>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>nss</Dependency>
+            <Dependency>samba</Dependency>
+            <Dependency>ruby</Dependency>
+            <Dependency>tre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+        <!-- nss compat ossl , we don't have it
+            <Path fileType="config">/etc</Path>
+        -->
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/elinks</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <!--
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/elinks.conf">elinks.conf</AdditionalFile>
+        </AdditionalFiles>
+        -->
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2012-04-09</Date>
+            <Version>0.12_pre5</Version>
+            <Comment>Use new spidermonkey</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2012-04-07</Date>
+            <Version>0.12_pre5</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

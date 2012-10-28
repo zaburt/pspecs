@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>chntpw</Name>
+        <Summary xml:lang="tr">NT kayıt düzenleyici</Summary>
+        <Description xml:lang="tr">chntpw NT parola değiştirici ve ayar kayıt sistemi düzenleciyisidir.</Description>
+    </Source>
+</PISI>
