@@ -1,0 +1,53 @@
+diff -Nur iptraf-ng-1.1.3.1-old//Makefile iptraf-ng-1.1.3.1/Makefile
+--- iptraf-ng-1.1.3.1-old//Makefile	2012-11-16 01:41:37.967000113 +0200
++++ iptraf-ng-1.1.3.1/Makefile	2012-11-16 01:41:54.575000113 +0200
+@@ -18,8 +18,7 @@
+ 	@$(SHELL_PATH) ./GEN-VERSION-FILE
+ -include VERSION-FILE
+ 
+-CFLAGS = -g -O2 -Wall -W -std=gnu99
+-LDFLAGS =
++CFLAGS +=  -Wall -W -std=gnu99
+ ALL_CFLAGS = $(CPPFLAGS) $(CFLAGS)
+ ALL_LDFLAGS = $(LDFLAGS)
+ STRIP ?= strip
+@@ -38,7 +37,6 @@
+ 
+ export prefix bindir sharedir sysconfdir gitwebdir localedir
+ 
+-CC = cc
+ RM = rm -f
+ INSTALL = install
+ RPMBUILD = rpmbuild
+@@ -311,7 +309,7 @@
+ all:: $(ALL_PROGRAMS)
+ 
+ iptraf-ng: $(iptraf-o)
+-	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ \
++	$(CC) $(ALL_CFLAGS) -o $@ \
+ 		$(iptraf-o) $(ALL_LDFLAGS) $(NCURSES_LDFLAGS)
+ 
+ src/deskman.o src/iptraf.o: VERSION-FILE
+@@ -320,11 +318,11 @@
+ 	-DIPTRAF_NAME='"iptraf-ng"'
+ 
+ rvnamed-ng: $(rvnamed-o)
+-	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ \
++	$(CC) $(ALL_CFLAGS) -o $@ \
+ 		$(rvnamed-o) $(ALL_LDFLAGS)
+ 
+ configure: configure.ac
+-	$(QUIET_GEN)$(RM) $@ $<+ && \
++	$(RM) $@ $<+ && \
+ 	sed -e 's/@@IPTRAF_VERSION@@/$(IPTRAF_VERSION)/g' \
+ 	    $< > $<+ && \
+ 	autoconf -o $@ $<+ && \
+@@ -375,7 +373,7 @@
+ 
+ ifndef CHECK_HEADER_DEPENDENCIES
+ $(OBJECTS): %.o: %.c $(missing_dep_dirs)
+-	$(QUIET_CC)$(CC) -o $*.o -c $(dep_args) $(NCURSES_CFLAGS) $(ALL_CFLAGS) $(EXTRA_CPPFLAGS) $<
++	$(CC) -o $*.o -c $(dep_args) $(NCURSES_CFLAGS) $(ALL_CFLAGS) $(EXTRA_CPPFLAGS) $<
+ endif
+ 
+ ifdef USE_COMPUTED_HEADER_DEPENDENCIES

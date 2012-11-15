@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>iptraf-ng</Name>
+        <Homepage>http://fedorahosted.org/iptraf-ng/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Network traffic analyzer</Summary>
+        <Description>IPTraf NG is an ncurses-based IP LAN monitor.</Description>
+        <Archive sha1sum="09da6949674b39f9998ead63dc2c671002ba27d4" type="targz">https://fedorahosted.org/releases/i/p/iptraf-ng/iptraf-ng-1.1.3.1.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">iptraf-ng-1.1.3.1-kernel-v3.5-kill-off-token-ring-support.patch</Patch>
+            <!-- sed -i -e '/^CC =/d' -e '/^CFLAGS/s:= -g -O2:+= :' -e '/^LDFLAGS =/d' -e 's|$(QUIET_[[:alpha:]]*)||g' Makefile -->
+            <Patch level="1">makefile.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>iptraf-ng</Name>
+        <Conflicts>
+            <Package>iptraf</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="data">/</Path>
+        </Files>
+        <!--
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/iptraf-ng.desktop">iptraf-ng.desktop</AdditionalFile>
+        </AdditionalFiles>
+        -->
+        <!--
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+        -->
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-11-16</Date>
+            <Version>1.1.3.1</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
