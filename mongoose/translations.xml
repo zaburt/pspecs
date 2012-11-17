@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>mongoose</Name>
+        <Summary xml:lang="tr">Ufak Web sunucu</Summary>
+        <Description xml:lang="tr">Mongoose ufak ve kolay kullanılabilen, http, python, php vb. sistemlere desteği olan bir Web sunucudur.</Description>
+    </Source>
+</PISI>

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mongoose</Name>
+        <Homepage>http://code.google.com/p/mongoose/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>server</IsA>
+        <Summary>Small web server</Summary>
+        <Description>Mongoose is a small and easy to use web server with http, php, python, cgi etc. support.</Description>
+        <Archive sha1sum="37854a7edacc8cef7e52ba3e0b3dbdcd7ec7d043" type="targz">http://mongoose.googlecode.com/files/mongoose-3.3.tgz</Archive>
+        <Patches>
+            <Patch level="1">ssl_headers.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mongoose</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc/mongoose</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/doc/mongoose/mongoose.conf">mongoose.conf</AdditionalFile>
+        </AdditionalFiles>
+        <!-- No soup for you
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+        -->
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2012-11-17</Date>
+            <Version>3.3</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
