@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>metakit</Name>
+        <Summary xml:lang="tr">Gömülü veritabanı kitaplığı</Summary>
+        <Description xml:lang="tr">Metakit gömülü sistemler için az kaynak harcayan bir gömülü veritabanı kitaplığıdır.</Description>
+    </Source>
+
+    <Package>
+        <Name>metakit-devel</Name>
+        <Summary xml:lang="tr">metakit için geliştirme dosyaları</Summary>
+    </Package>
+</PISI>
