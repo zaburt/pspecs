@@ -10,11 +10,20 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+import os
 
 libmk = "libmk4.so"
 apiver = "2.4"
 pylibdir = "/usr/lib/%s/site-packages" % get.curPYTHON()
 
+
+def fixPerms(base):
+    print "working on %s" % base
+    for root, dirs, files in os.walk(base):
+        for name in dirs:
+            os.chmod(os.path.join(root, name), 0755)
+        for name in files:
+            os.chmod(os.path.join(root, name), 0644)
 
 def setup():
     shelltools.system('CXXFLAGS="%s" unix/configure \
@@ -42,6 +51,11 @@ def install():
     for i in apiver.split("."):
         pisitools.dosym("%s.%s" % (libmk, apiver), "/usr/lib/%s%s" % (libmk, suffixMinor))
         suffixMinor += ".%s" % i
+
+    docdir = "%s/%s" % (get.docDIR(), get.srcNAME())
+    for i in ["demos", "examples"]:
+        pisitools.insinto(docdir, i)
+    fixPerms("%s/%s" % (get.installDIR(), docdir))
 
     pisitools.dodoc("CHANGES", "README", "NOTES*")
     pisitools.dohtml("Metakit.html")
