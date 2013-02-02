@@ -13,7 +13,7 @@
         <IsA>library</IsA>
         <Summary>Geographic objects for PostgreSQL</Summary>
         <Description>Postgis adds support for geographic objects to PostgreSQL.</Description>
-        <Archive sha1sum="09f570237d9883bd101775933b165ddf81c6b392" type="targz">http://postgis.refractions.net/download/postgis-1.5.5.tar.gz</Archive>
+        <Archive sha1sum="a3637851ba9dd4f29576c9dc60254e9f53abc559" type="targz">http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>postgresql-lib</Dependency>
             <Dependency>geos-devel</Dependency>
@@ -39,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2013-02-02</Date>
+            <Version>1.5.8</Version>
+            <Comment>Minor version bump for bugfix</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
         <Update release="2">
             <Date>2012-10-28</Date>
             <Version>1.5.5</Version>
