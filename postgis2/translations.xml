@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>postgis2</Name>
+        <Summary xml:lang="tr">PostgreSQL için coğrafya yeteneği</Summary>
+        <Description xml:lang="tr">Postgis, PostgreSQL için coğrafya objeleri oluşturma yeteneği sağlar.</Description>
+    </Source>
+</PISI>

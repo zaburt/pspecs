@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>postgis2</Name>
+        <Homepage>http://postgis.refractions.net/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>Geographic objects for PostgreSQL</Summary>
+        <Description>Postgis adds support for geographic objects to PostgreSQL.</Description>
+        <Archive sha1sum="825c1718cf2603fa0f1c2de802989dff7239f9bc" type="targz">http://download.osgeo.org/postgis/source/postgis-2.0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>geos-devel</Dependency>
+            <Dependency>proj-devel</Dependency>
+            <Dependency>cunit-devel</Dependency>
+            <Dependency>gdal-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>postgis2</Name>
+        <RuntimeDependencies>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>geos</Dependency>
+            <Dependency>proj</Dependency>
+            <Dependency>cunit</Dependency>
+            <Dependency>gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/postgresql/contrib/postgis-2.0</Path>
+            <Path fileType="data">/usr/share/postgresql/extension</Path>
+            <Path fileType="doc">/usr/share/doc/postgis2</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2013-03-18</Date>
+            <Version>2.0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+    </History>
+</PISI>
