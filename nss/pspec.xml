@@ -12,14 +12,14 @@
         <IsA>library</IsA>
         <Summary>Network Security Services</Summary>
         <Description>Network Security Services (NSS) is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards.</Description>
-        <Archive sha1sum="d8e7ee9f9f1e0bfa2ea8b72d25727634fea130a6" type="targz">http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_13_1_RTM/src/nss-3.13.1.tar.gz</Archive>
+        <Archive sha1sum="94d8781d1fa29cfbd37453dda3e9488709b82c4c" type="targz">http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_14_3_RTM/src/nss-3.14.3.tar.gz</Archive>
         <AdditionalFiles>
             <AdditionalFile target="dist/pkgconfig/nss.pc.in">nss.pc.in</AdditionalFile>
             <AdditionalFile target="dist/pkgconfig/nss-config.in">nss-config.in</AdditionalFile>
             <AdditionalFile permission="0755" target="generate-pc-config.sh">generate-pc-config.sh</AdditionalFile>
         </AdditionalFiles>
         <BuildDependencies>
-            <Dependency versionFrom="4.8.9">nspr-devel</Dependency>
+            <Dependency versionFrom="4.9.6">nspr-devel</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">include-fix.patch</Patch>
@@ -28,7 +28,9 @@
             <Patch>system-nspr.patch</Patch>
 
             <!-- Patches from Fedora -->
+            <!--
             <Patch>nss-no-rpath.patch</Patch>
+            -->
             <Patch level="1">nss-nolocalsql.patch</Patch>
 
             <!-- Fedora patches -->
@@ -41,15 +43,17 @@
                  * Distrust DigiNotar root certificate (mozbug#682927).
                  * Revoke Trust in DigiCert Sdn. Bhd Intermediate Certificate Authority (mozbug#698753).
             -->
+            <!--
             <Patch level="1">ckbi-1_88.patch</Patch>
             <Patch level="0">pkcs11n-header-fix.patch</Patch>
+            -->
         </Patches>
     </Source>
 
     <Package>
         <Name>nss</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.8.9">nspr</Dependency>
+            <Dependency versionFrom="4.9.6">nspr</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
@@ -81,6 +85,13 @@
     </Package>
 
     <History>
+        <Update release="46">
+            <Date>2013-04-13</Date>
+            <Version>3.14.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
         <Update release="45">
             <Date>2011-12-29</Date>
             <Version>3.13.1</Version>
