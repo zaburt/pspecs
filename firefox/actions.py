@@ -21,6 +21,8 @@ locales = ["be", "ca", "de", "es-AR", "es-ES", "fr", "hu", "it", "nl", "pl", "ru
 def build():
     # FIXME: Change library path and version with variables
     shelltools.export("LDFLAGS", "%s -Wl,-rpath,/usr/lib/%s-%s" % (get.LDFLAGS(), get.srcNAME(), get.srcVERSION()))
+    shelltools.export("CFLAGS", "%s" % get.CFLAGS().replace("-ggdb3", "-g"))
+    shelltools.export("CXXFLAGS", "%s" % get.CXXFLAGS().replace("-ggdb3", "-g"))
 
     autotools.make("-f client.mk")
 
@@ -31,28 +33,31 @@ def build():
     # mozconfig.
     # With 'make -f client.mk' call, build action takes place in $TOPSRCDIR/$OBJDIR by default. But this 'configure' call will take place in $TOPSRCDIR.
     # So we must override mozconfig l10n path specification to ./10n instead of ../l10n
-    shelltools.system("./configure --prefix=/usr --libdir=/usr/lib --disable-strip --disable-install-strip --with-l10n-base=./l10n")
+    # shelltools.system("./configure --prefix=/usr --libdir=/usr/lib --disable-strip --disable-install-strip --with-l10n-base=./l10n")
+    shelltools.system("./configure --prefix=/usr --libdir=/usr/lib --disable-strip --disable-install-strip")
 
     # FIXME: nsinstall get installed in the wrong place, fix it
     shelltools.copy("%s/%s/%s/config/nsinstall" % (get.workDIR(), WorkDir, ObjDir), "%s/%s/config/" % (get.workDIR(), WorkDir))
-    for locale in locales:
-       autotools.make("-C browser/locales langpack-%s" % locale)
+    #for locale in locales:
+    #   autotools.make("-C browser/locales langpack-%s" % locale)
 
 def install():
     autotools.rawInstall("-f client.mk DESTDIR=%s" % get.installDIR())
 
     # Any reason to do this renaming ?
-    realdir = shelltools.ls("%s/usr/lib/firefox-?.?.?" % get.installDIR())[0].replace(get.installDIR(), "")
-    pisitools.rename(realdir, "MozillaFirefox")
+    # realdir = shelltools.ls("%s/usr/lib/firefox-?.?.?" % get.installDIR())[0].replace(get.installDIR(), "")
+    # realdir = shelltools.ls("%s/usr/lib/firefox-?.?" % get.installDIR())[0].replace(get.installDIR(), "")
+    # pisitools.rename(realdir, "MozillaFirefox")
+    pisitools.rename("/usr/lib/firefox-20.0", "MozillaFirefox")
 
     pisitools.remove("/usr/bin/firefox") # Additional file will replace that
 
     #install locales
-    for locale in locales:
-        pisitools.copytree("dist/xpi-stage/locale-%s" % locale, "%s/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org" % (get.installDIR(), locale))
-        pisitools.removeDir("/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/defaults" % locale)
-        pisitools.remove("/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/chrome/%s/locale/branding/browserconfig.properties" % (locale, locale))
-        pisitools.dosym("../../../../../../browserconfig.properties", "/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/chrome/%s/locale/branding/browserconfig.properties" % (locale, locale))
+    #for locale in locales:
+    #    pisitools.copytree("dist/xpi-stage/locale-%s" % locale, "%s/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org" % (get.installDIR(), locale))
+    #    pisitools.removeDir("/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/defaults" % locale)
+    #    pisitools.remove("/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/chrome/%s/locale/branding/browserconfig.properties" % (locale, locale))
+    #    pisitools.dosym("../../../../../../browserconfig.properties", "/usr/lib/MozillaFirefox/extensions/langpack-%s@firefox.mozilla.org/chrome/%s/locale/branding/browserconfig.properties" % (locale, locale))
 
     pisitools.dodir("/usr/lib/MozillaFirefox/dictionaries")
     shelltools.touch("%s%s/dictionaries/tr-TR.aff" % (get.installDIR(), "/usr/lib/MozillaFirefox"))
@@ -66,3 +71,4 @@ def install():
 
     # Install docs
     pisitools.dodoc("LEGAL", "LICENSE")
+

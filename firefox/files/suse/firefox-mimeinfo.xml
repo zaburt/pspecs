@@ -2,7 +2,6 @@
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <mime-type type="application/x-xpinstall">
     <comment xml:lang="en">Mozilla Cross-Platform Installer Module</comment>
-    <comment xml:lang="tr">Mozilla Platform Bağımsız Yüklenebilir Modül</comment>
     <glob pattern="*.xpi" />
   </mime-type>
 </mime-info>

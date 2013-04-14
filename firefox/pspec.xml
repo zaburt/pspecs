@@ -15,9 +15,9 @@
         <IsA>app:gui</IsA>
         <Summary>Firefox Web Browser</Summary>
         <Description>It is more secure and faster to browse the web with Firefox web browser. You can personalize your web browser with many specifications that is not enough to explain in two sentences.</Description>
-        <Archive sha1sum="074eb9c1df4de0fe0a4bb9226ca3c2822c334cd6" type="tarbz2">ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/6.0.2/source/firefox-6.0.2.source.tar.bz2</Archive>
-        <!--Use tools/create-locale-tar.sh script to create the l10n-tarball from mozilla sources-->
-        <Archive sha1sum="ac7acb1f829666183a19b1ae444114d87746e145" type="tarbz2" target="mozilla-release">http://cekirdek.pardus.org.tr/~farslan/dist/firefox/l10n-6.0.2.tar.bz2</Archive>
+        <!-- Use tools/{create-source.sh, create-locale.sh} scripts to create tarballs for both firefox source and l10n -->
+        <Archive sha1sum="6d776c29da0be0d2a50abeb504d63b06b7861218" type="tarbz2">ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/20.0/source/firefox-20.0.source.tar.bz2</Archive>
+        <Archive sha1sum="25ab29e9f10fd19f2e1277ad3dad7562f944b23e" type="tarxz" target="mozilla-release">http://www.delipenguen.net/pardus/packages/source/firefox-l10n-20.0.tar.xz</Archive>
         <AdditionalFiles>
 
             <!--Our main configure script. Configure paramters are stored here.-->
@@ -46,13 +46,39 @@
             <Dependency>libXt-devel</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch level="1">suse/firefox-branded-icons.patch</Patch>
+            <Patch level="1">suse/firefox-browser-css.patch</Patch>
+            <Patch level="1">suse/firefox-multilocale-chrome.patch</Patch>
+            <Patch level="1">suse/firefox-no-default-ualocale.patch</Patch>
+            <Patch level="1">suse/firefox-712763.patch</Patch>
+            <!--
+            <Patch level="1">suse/mozilla-gstreamer-760140.patch</Patch>
+            <Patch level="1">suse/mozilla-kde.patch</Patch>
+            -->
+            <Patch level="1">suse/mozilla-language.patch</Patch>
+            <Patch level="1">suse/mozilla-nongnome-proxies.patch</Patch>
+            <Patch level="1">suse/mozilla-ntlm-full-path.patch</Patch>
+            <Patch level="1">suse/mozilla-ppc.patch</Patch>
+            <Patch level="1">suse/mozilla-preferences.patch</Patch>
+            <Patch level="1">suse/mozilla-prefer_plugin_pref.patch</Patch>
+            <!--
+            <Patch level="1">suse/mozilla-shared-nss-db.patch</Patch>
+            -->
+            <Patch level="1">suse/mozilla-sle11.patch</Patch>
+            <Patch level="1">suse/toolkit-download-folder.patch</Patch>
+
+            <!-- old stuff
             <Patch level="1">suse/mozilla-kde.patch</Patch>
             <Patch level="1">suse/mozilla-language.patch</Patch>
+            -->
 
             <!--Remove an obsolote curl header. Look /usr/include/curl/types.h-->
+            <!-- old stuff
             <Patch level="1">suse/mozilla-curl.patch</Patch>
+            -->
 
             <!--These are mainly integrations stuff like default browser-->
+            <!-- old stuff
             <Patch level="1">suse/firefox-kde.patch</Patch>
             <Patch level="1">suse/firefox-kde-114.patch</Patch>
 
@@ -62,14 +88,21 @@
             <Patch level="1">suse/firefox-no-default-ualocale.patch</Patch>
             <Patch level="1">suse/firefox-multilocale-chrome.patch</Patch>
             <Patch level="1">suse/firefox-no-sync-l10n.patch</Patch>
+            -->
 
             <Patch level="1">fedora/firefox-5.0-asciidel.patch</Patch>
+            <Patch level="2">fedora/firefox-15.0-enable-addons.patch</Patch>
 
+            <!-- needs reorganization
             <Patch level="0">pardus/as-needed.diff</Patch>
+            -->
             <Patch level="1">pardus/autoconf-213-hack.diff</Patch>
+            <Patch level="1">pardus/firefox-18-fix-cairo-build.patch</Patch>
+            <!--  Turkish support, needs some work
             <Patch level="1">pardus/workaround-dbus-glib-build-error.diff</Patch>
             <Patch level="0">pardus/zemberek-firefox5.patch</Patch>
             <Patch level="0">pardus/fix-double-turkish-option.diff</Patch>
+            -->
         </Patches>
     </Source>
 
@@ -155,6 +188,34 @@
     </Package>
 
     <History>
+        <Update release="165">
+            <Date>2013-04-13</Date>
+            <Version>20.0</Version>
+            <Comment>Jumping bunnies bumping big versions</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+        <Update release="164">
+            <Date>2013-04-13</Date>
+            <Version>9.0</Version>
+            <Comment>Dummy bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+        <Update release="163">
+            <Date>2013-04-13</Date>
+            <Version>9.0</Version>
+            <Comment>Dummy bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+        <Update release="162">
+            <Date>2013-04-13</Date>
+            <Version>9.0</Version>
+            <Comment>Dummy bump</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
         <Update release="161">
             <Date>2011-10-02</Date>
             <Version>6.0.2</Version>

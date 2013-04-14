@@ -6,15 +6,15 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=478632
 wr: changed because of
 https://bugzilla.novell.com/show_bug.cgi?id=561027
 
-diff --git a/browser/themes/gnomestripe/browser/browser.css b/browser/themes/gnomestripe/browser/browser.css
---- a/browser/themes/gnomestripe/browser/browser.css
-+++ b/browser/themes/gnomestripe/browser/browser.css
-@@ -954,16 +954,30 @@ toolbar[iconsize="small"] #feed-button {
- }
+diff --git a/browser/themes/gnomestripe/browser.css b/browser/themes/gnomestripe/browser.css
+--- a/browser/themes/gnomestripe/browser.css
++++ b/browser/themes/gnomestripe/browser.css
+@@ -1026,16 +1026,30 @@ toolbar[iconsize="small"] #feed-button {
  
  #urlbar-display {
    margin-top: 0;
    margin-bottom: 0;
+   -moz-margin-start: 0;
    color: GrayText;
  }
  
@@ -33,10 +33,10 @@ diff --git a/browser/themes/gnomestripe/browser/browser.css b/browser/themes/gno
 +}
 +
  /* Favicon */
- #page-proxy-favicon,
- #urlbar-throbber {
+ #page-proxy-favicon {
    width: 16px;
    height: 16px;
- }
- 
- #page-proxy-stack {
+   margin-top: 2px;
+   margin-bottom: 2px;
+   -moz-margin-start: 4px;
+   -moz-margin-end: 3px;
