@@ -12,8 +12,10 @@
         <IsA>library</IsA>
         <Summary>Adobe Flash Player</Summary>
         <Description>Adobe (Macromedia) Flash Player is an application to present interactive (and possibly multimedia-containing) content created using Adobe Flash.</Description>
+        <!--
         <Archive sha1sum="135dc0fcb0de918517cd23479ad7927bcce455a2" type="targz" target="i686">http://cekirdek.pardus.org.tr/~farslan/dist/flashplugin/flashplugin-11.1.102.55-i386.tar.gz</Archive>
-        <Archive sha1sum="d17bcb430c00f8857bedc5336869905342425da0" type="targz" target="x86_64">http://cekirdek.pardus.org.tr/~farslan/dist/flashplugin/flashplugin-11.1.102.55-x86_64.tar.gz</Archive>
+        -->
+        <Archive sha1sum="a34a4ab8cdeb918256c9229914784f722f86dd2f" type="targz" target="x86_64">http://www.delipenguen.net/pardus/packages/source/flashplugin-11.2.202.280-x86_64.tar.gz</Archive>
     </Source>
 
     <Package>
@@ -44,6 +46,13 @@
     </Package>
 
     <History>
+        <Update release="47" type="security">
+            <Date>2013-04-13</Date>
+            <Version>11.2.202.280</Version>
+            <Comment>Security fix 11.2.202.280</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
         <Update release="46" type="security">
             <Date>2011-11-11</Date>
             <Version>11.1.102.55</Version>
