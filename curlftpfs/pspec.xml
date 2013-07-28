@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>curlftpfs</Name>
+        <Homepage>http://curlftpfs.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Filesystem for accessing FTP hosts</Summary>
+        <Description>curlftpfs is a filesystem to mount FTP hosts.</Description>
+        <Archive sha1sum="83f148afe6bd4d44c9790790f1c30986c8b9ea56" type="targz">mirrors://sourceforge/curlftpfs/curlftpfs-0.9.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>fuse-devel</Dependency>
+            <Dependency>curl-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">ioerror.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>curlftpfs</Name>
+        <RuntimeDependencies>
+            <Dependency>fuse</Dependency>
+            <Dependency>curl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/curlftpfs</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2013-07-28</Date>
+            <Version>0.9.2</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+    </History>
+</PISI>

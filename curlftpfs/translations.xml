@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>curlftpfs</Name>
+        <Summary xml:lang="tr">FTP sistemlere erişim için dosyasistemi</Summary>
+        <Description xml:lang="tr">curlftpfs FTP sistemleri yerel dizinlere bağlayabilen bir dosya sistemidir.</Description>
+    </Source>
+</PISI>
