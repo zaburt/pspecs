@@ -1,0 +1,23 @@
+diff -up pmount-0.9.17/src/Makefile.in.nosetuid pmount-0.9.17/src/Makefile.in
+--- pmount-0.9.17/src/Makefile.in.nosetuid	2007-12-29 21:43:20.000000000 +0100
++++ pmount-0.9.17/src/Makefile.in	2008-09-25 18:27:55.000000000 +0200
+@@ -262,7 +262,7 @@ EXTRA_DIST = \
+ 	utils.h  \
+ 	realpath.h
+ 
+-INSTALL_DIR = $(DESTDIR)/$(prefix)/bin
++INSTALL_DIR = $(DESTDIR)/$(bindir)
+ INSTALL_SRC = $(top_builddir)/src
+ all: all-am
+ 
+@@ -573,8 +573,8 @@ uninstall-am: uninstall-binPROGRAMS unin
+ 
+ install-data-hook:
+ 	test -z $(INSTALL_DIR) || mkdir -p -- $(INSTALL_DIR)
+-	$(INSTALL_DATA) -o root -g root -m 4755 -D $(INSTALL_SRC)/pmount $(INSTALL_DIR)/pmount
+-	$(INSTALL_DATA) -o root -g root -m 4755 -D $(INSTALL_SRC)/pumount $(INSTALL_DIR)/pumount
++	$(INSTALL_DATA) -m 755 -D $(INSTALL_SRC)/pmount $(INSTALL_DIR)/pmount
++	$(INSTALL_DATA) -m 755 -D $(INSTALL_SRC)/pumount $(INSTALL_DIR)/pumount
+ 
+ uninstall-hook:
+ 	rm -f $(INSTALL_DIR)/pmount

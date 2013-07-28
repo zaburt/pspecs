@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>pmount</Name>
+        <Summary xml:lang="tr">Kural bazlı aygıt bağlayıcı</Summary>
+        <Description xml:lang="tr">Pmount kullanıcı olarak takılıp çıkaraılabilir aygıtları belli kuralları baz alarak bağlama yeteneği sunar.</Description>
+    </Source>
+</PISI>
