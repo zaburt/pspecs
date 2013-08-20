@@ -1,0 +1,18 @@
+diff -Nur pam_usb-0.5.0-old//tools/pamusb-agent pam_usb-0.5.0/tools/pamusb-agent
+--- pam_usb-0.5.0-old//tools/pamusb-agent	2013-07-28 21:13:05.703000264 +0300
++++ pam_usb-0.5.0/tools/pamusb-agent	2013-07-28 21:13:18.764000259 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python
+ #
+ # Copyright (c) 2003-2007 Andrea Luzzardi <scox@sig11.org>
+ #
+diff -Nur pam_usb-0.5.0-old//tools/pamusb-conf pam_usb-0.5.0/tools/pamusb-conf
+--- pam_usb-0.5.0-old//tools/pamusb-conf	2013-07-28 21:13:05.703000264 +0300
++++ pam_usb-0.5.0/tools/pamusb-conf	2013-07-28 21:13:21.823000261 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python
+ #
+ # Copyright (c) 2003-2007 Andrea Luzzardi <scox@sig11.org>
+ #

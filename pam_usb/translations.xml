@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>pam_usb</Name>
+        <Summary xml:lang="tr">PAM USB yetkilendirme eklentisi</Summary>
+        <Description xml:lang="tr">pam_usb PAM sistemi için USB üzerinden yetkilendirme sağlayan bir modüldür.</Description>
+    </Source>
+</PISI>

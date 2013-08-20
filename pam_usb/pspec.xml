@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pam_usb</Name>
+        <Homepage>http://pamusb.org/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>PAM USB authentication module</Summary>
+        <Description>pam_usb is a PAM module that provides authentication ability through USB</Description>
+        <Archive sha1sum="97bf8ae15a0b0c39cfcd4d8a5f531781ad8c80e7" type="targz">mirrors://sourceforge/pamusb/pam_usb-0.5.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-pygobject-devel</Dependency>
+            <Dependency>pmount</Dependency>
+            <Dependency>udisks-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>pam_usb-0.5.0-openpam.patch</Patch>
+            <Patch level="1">shebang.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pam_usb</Name>
+        <RuntimeDependencies>
+            <Dependency>python-pygobject</Dependency>
+            <Dependency>pmount</Dependency>
+            <Dependency>udisks</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="library">/lib/security</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc/pam_usb</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2013-07-28</Date>
+            <Version>0.5.0</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+    </History>
+</PISI>
