@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>socat</Name>
+        <Summary xml:lang="tr">Çokamaçlı aktarıcı</Summary>
+        <Description xml:lang="tr">socat yeniden tasarlanmış ve gerçeklenmiş netcat++ olarak tanımlanabilir.</Description>
+    </Source>
+</PISI>
