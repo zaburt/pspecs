@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>nodejs</Name>
+        <Homepage>http://nodejs.org</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>Javascript platform</Summary>
+        <Description>Node.js is a platform built on Chrome's JavaScript runtime V8 for easily building fast, scalable network applications.</Description>
+        <Archive sha1sum="d7c6a39dfa714eae1f8da7a00c9a07efd74a03b3" type="targz">http://nodejs.org/dist/v0.10.22/node-v0.10.22.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>nodejs</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/dtrace</Path>
+            <Path fileType="library">/usr/lib/node_modules/npm</Path>
+            <Path fileType="doc">/usr/share/doc/nodejs</Path>
+            <Path fileType="html">/usr/share/doc/nodejs/html</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2013-11-30</Date>
+            <Version>0.10.22</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
+    </History>
+</PISI>

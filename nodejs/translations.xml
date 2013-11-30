@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>nodejs</Name>
+        <Summary xml:lang="tr">Javascript altyapısı</Summary>
+        <Description xml:lang="tr">Node.js hızlı ve ölçeklenebilir ağ uygulamaları geliştirmek için Chrome'un V8 JavaScript motoru baz alınarak hazırlanmış bir altyapıdır.</Description>
+    </Source>
+</PISI>
