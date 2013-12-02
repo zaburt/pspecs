@@ -1,0 +1,31 @@
+diff -Nur tty-clock-master-old//Makefile tty-clock-master/Makefile
+--- tty-clock-master-old//Makefile	2013-12-02 20:20:09.655000001 +0200
++++ tty-clock-master/Makefile	2013-12-02 20:52:23.812000007 +0200
+@@ -9,22 +9,16 @@
+ INSTALLPATH = ${DESTDIR}${PREFIX}/bin
+ MANPATH = ${DESTDIR}${PREFIX}/share/man/man1
+ 
+-ifeq ($(shell sh -c 'which ncurses5-config>/dev/null 2>/dev/null && echo y'), y)
+-	CFLAGS = -Wall -g -I $$(ncurses5-config --includedir)
+-	LDFLAGS = -L $$(ncurses5-config --libdir) $$(ncursesw5-config --libs)
+-else ifeq ($(shell sh -c 'which ncursesw5-config>/dev/null 2>/dev/null && echo y'), y)
+-		CFLAGS = -Wall -g -I $$(ncursesw5-config --includedir)
+-		LDFLAGS = -L $$(ncursesw5-config --libdir) $$(ncursesw5-config --libs)
+-endif
+-
++NCURSES_CFLAGS := $$(ncursesw5-config --includedir)
++NCURSES_LDFLAGS := $$(ncursesw5-config --libs)
+ 
+ 
+ 
+ tty-clock : ${SRC}
+ 
+ 	@echo "build ${SRC}"
+-	@echo "CC ${CFLAGS} ${LDFLAGS} ${SRC}"
+-	@${CC} ${CFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
++	# @echo "CC ${CFLAGS} ${LDFLAGS} ${SRC}"
++	$(CC) $(CFLAGS) -I ${NCURSES_CFLAGS} $(LDFLAGS) ${SRC} ${NCURSES_LDFLAGS} -o ${BIN}
+ 
+ install : ${BIN}
+ 
+Binary files tty-clock-master-old//tty-clock and tty-clock-master/tty-clock differ
