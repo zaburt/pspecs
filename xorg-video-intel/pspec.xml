@@ -24,6 +24,7 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">intel-2.11.0-vga-clock-max.patch</Patch>
+            <Patch level="1">46f97127c22ea42bc8fdae59d2a133e4b8b6c997.patch</Patch>
         </Patches>
     </Source>
 
@@ -45,6 +46,13 @@
     </Package>
 
     <History>
+        <Update release="27">
+            <Date>2013-12-14</Date>
+            <Version>2.15.0</Version>
+            <Comment>Backport UXA BLT fixes https://bugzilla.kernel.org/show_bug.cgi?id=27892</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@delipenguen.net</Email>
+        </Update>
         <Update release="26">
             <Date>2011-04-14</Date>
             <Version>2.15.0</Version>
