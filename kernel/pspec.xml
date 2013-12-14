@@ -349,6 +349,9 @@
             <!-- i915 fix GPU hang on lost IRQ, happens especially with i915.semaphore=0 -->
             <Patch level="1">patches/backport/drm-intel-fix-gen6-missed-blt-ring-interrupts.patch</Patch>
             <Patch level="1">patches/backport/drm-intel-also-fix-bsd-ring-interrupts.patch</Patch>
+            <!--
+            <Patch level="1">patches/backport/drm-intel-reset_gpu.patch</Patch>
+            -->
 
         </Patches>
     </Source>
