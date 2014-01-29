@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>postgresql-temporal</Name>
+        <Summary xml:lang="tr">PostgreSQL Temporal Eklentisi</Summary>
+        <Description xml:lang="tr">postgresql-temporal PostgreSQL veritabanı için Temporal Veritabanı yenetekleri sağlayan bir eklentidir.</Description>
+    </Source>
+</PISI>
