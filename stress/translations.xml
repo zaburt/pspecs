@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>stress</Name>
+        <Summary xml:lang="tr">Stres test aracı</Summary>
+        <Description xml:lang="tr">Sisteminize (CPU, hafıza, G/Ç, disk) stres testi uygulayan bir araç</Description>
+    </Source>
+</PISI>
